@@ -1,17 +1,16 @@
 import mongoose, { Schema, Document, Types } from "mongoose";
 import validator from "validator";
 
-export interface User extends Document {
+export interface IUser extends Document {
     _id: Types.ObjectId;
     fullName: string;
     email: String;
     password: string;
-    classId : Types.ObjectId;
     role: "student" | "teacher";
     grades: Types.ObjectId[];
 }
 
-const hatSchema: Schema<User> = new Schema<User>(
+const hatSchema: Schema<IUser> = new Schema<IUser>(
     {
         fullName: {
             type: String,
@@ -36,11 +35,6 @@ const hatSchema: Schema<User> = new Schema<User>(
             required: [true, "Password is required"],
           
         },
-        classId: {
-            type: Schema.Types.ObjectId,
-            ref: "Class",
-            
-        },
         role: {
             type: String,
             enum: ["student", "teacher"],
@@ -59,4 +53,4 @@ const hatSchema: Schema<User> = new Schema<User>(
 
 
 
-export default mongoose.model<User>('User', hatSchema); 
+export default mongoose.model<IUser>('User', hatSchema); 
