@@ -118,7 +118,7 @@ export const getStudentsWithGrades = async (req: Request, res: Response, next: N
         next(error);
     }
 };
-
+console.log("first")
 
 // export const UpdateGrade = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
 //     try {
