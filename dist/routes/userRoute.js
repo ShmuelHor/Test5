@@ -2,10 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const teacherControllers_1 = require("../controllers/teacherControllers");
-const userRouter = (0, express_1.Router)();
+const teacherRouter = (0, express_1.Router)();
 /**
  * @swagger
- * /school/users:
+ * /school/teachers:
  *   post:
  *     summary: Create a new user
  *     requestBody:
@@ -28,5 +28,5 @@ const userRouter = (0, express_1.Router)();
  *       201:
  *         description: User created successfully
  */
-userRouter.route("/").post(teacherControllers_1.createUser);
-exports.default = userRouter;
+teacherRouter.route("/").post(teacherControllers_1.createTeacher);
+exports.default = teacherRouter;

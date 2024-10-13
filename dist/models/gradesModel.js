@@ -33,5 +33,8 @@ const gradeSchema = new mongoose_1.Schema({
         type: Number,
         required: [true, "Grade is required"],
     },
+    note: {
+        type: String,
+    }
 });
 exports.default = mongoose_1.default.model("Grade", gradeSchema);
