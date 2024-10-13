@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const userControllers_1 = require("../controllers/userControllers");
+const teacherControllers_1 = require("../controllers/teacherControllers");
 const userRouter = (0, express_1.Router)();
 /**
  * @swagger
@@ -21,25 +21,12 @@ const userRouter = (0, express_1.Router)();
  *                 type: string
  *               password:
  *                 type: string
- *               role:
+ *               nameClass:
  *                 type: string
- *
- *               grades:
- *                 type: array
  *
  *     responses:
  *       201:
  *         description: User created successfully
  */
-/**
- * @swagger
- * /school/users:
- *   get:
- *     summary: Get all users
- *     responses:
- *
- *       200:
- *         description: Users retrieved successfully
- */
-userRouter.route("/").post(userControllers_1.createUser).get(userControllers_1.getUsers);
+userRouter.route("/").post(teacherControllers_1.createUser);
 exports.default = userRouter;

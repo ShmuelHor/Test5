@@ -2,15 +2,22 @@ import mongoose, { Schema, Document, Types } from "mongoose";
 import validator from "validator";
 
 export interface IUser extends Document {
-    _id: Types.ObjectId;
+    // _id: Types.ObjectId;
     fullName: string;
-    email: String;
+    email: string;
     password: string;
-    role: "student" | "teacher";
-    grades: Types.ObjectId[];
+    role: string;
+    grades?: Types.ObjectId[];
 }
 
-const hatSchema: Schema<IUser> = new Schema<IUser>(
+export interface ICreateUser extends Document {
+    fullName : string;
+    email : string;
+    password : string;
+    nameClass : string
+}
+
+const userSchema: Schema<IUser> = new Schema<IUser>(
     {
         fullName: {
             type: String,
@@ -53,4 +60,4 @@ const hatSchema: Schema<IUser> = new Schema<IUser>(
 
 
 
-export default mongoose.model<IUser>('User', hatSchema); 
+export default mongoose.model<IUser>('User', userSchema); 

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createUser,getUsers} from "../controllers/userControllers";
+import { createUser} from "../controllers/teacherControllers";
 
 const userRouter = Router();
 /**
@@ -19,28 +19,16 @@ const userRouter = Router();
  *               email:
  *                 type: string
  *               password:
+ *                 type: string 
+ *               nameClass:
  *                 type: string
- *               role:
- *                 type: string
- *                 
- *               grades:
- *                 type: array
  *                 
  *     responses:
  *       201:
  *         description: User created successfully
  */
 
-/**
- * @swagger
- * /school/users:
- *   get:
- *     summary: Get all users
- *     responses:
- * 
- *       200:
- *         description: Users retrieved successfully
- */
-userRouter.route("/").post(createUser).get(getUsers);
+
+userRouter.route("/").post(createUser);
 
 export default userRouter;
