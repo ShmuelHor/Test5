@@ -1,13 +1,13 @@
 import mongoose, { Schema, Document, Types } from "mongoose";
 
-export interface Grade extends Document {
+export interface IGrade extends Document {
     _id: Types.ObjectId;
     subject: string;
     grade: number;
 }
 
 
-const gradeSchema: Schema<Grade> = new Schema<Grade>({
+const gradeSchema: Schema<IGrade> = new Schema<IGrade>({
     subject: {
         type: String,
         required: [true, "Subject is required"],
@@ -18,4 +18,4 @@ const gradeSchema: Schema<Grade> = new Schema<Grade>({
     },
 });
 
-export default mongoose.model<Grade>("Grade", gradeSchema);
+export default mongoose.model<IGrade>("Grade", gradeSchema);
